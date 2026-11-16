@@ -41,5 +41,8 @@ int main() {
         cout << endl;
     }
 
+    delete[] arr1;
+    delete[] arr2;
+
     return 0;
 }

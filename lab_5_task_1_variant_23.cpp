@@ -9,6 +9,15 @@ void input_again(int &a) {
 	cin >> a;
 }
 
+void fill_2d_array(int* arr1, int* arr2, int &N) {
+    for (int i = 0; i < N; ++i) {
+        arr2[i * N] = (N % 2 == 0) ? arr1[i] + 1 : arr1[i];
+        for (int j = 1; j < N; ++j) {
+            arr2[i * N + j] = (j % 2 == 0) ? 1 : -1;
+        }
+    }
+}
+
 int main() {
 	cout << "Введіть кількість елементів масиву: ";
     int N;
@@ -26,12 +35,7 @@ int main() {
     }
 
     int* arr2 = new int[N * N];
-    for (int i = 0; i < N; ++i) {
-        arr2[i * N] = (N % 2 == 0) ? arr1[i] + 1 : arr1[i];
-        for (int j = 1; j < N; ++j) {
-            arr2[i * N + j] = (j % 2 == 0) ? 1 : -1;
-        }
-    }
+    fill_2d_array(arr1, arr2, N);
 
     cout << "Отриманий двовимірний масив:\n";
     for (int i = 0; i < N; ++i) {
